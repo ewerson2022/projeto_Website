@@ -1,0 +1,21 @@
+<ul>
+    {% for loja in usuario_loja %}
+        <hr>
+        <li><strong>Razão Social:</strong> {{ loja.razao_social }}</li>
+        <li><strong>Número do Estabelecimento:</strong> {{ loja.numero_loja }}</li>
+        <li><strong>Endereço:</strong> {{ loja.endereco }}</li>
+        <div>
+            <a href="/home/estabelecimento/editar_loja/{{loja.id}}/"> editar informações da loja ?</a>
+        </div>
+        <div> 
+            <a href="/home/estabelecimento/excluir_loja/{{loja.id}}/"> Excluir loja</a>
+        </div>
+         <hr/>
+        
+       
+    {% endfor %}
+    <div>
+        <a href="{% url 'logout' %}"> Encerrar sessão?</a>
+        <a href="{% url 'estabelecimento_listar' %}"> voltar para o estabelecimento</a>
+    </div>
+</ul

@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link rel="stylesheet" href="{% static 'css/logout.css' %}">
+    
+    <title>Página de Logout</title>
+</head>
+<body>   
+    <main id="container">
+       
+        <form id="login_form" >
+            <!-- FORM HEADER -->
+           
+            <div id="form_header">
+                <h3>Logout</h3>
+                <i id="mode_icon" class="fa-solid fa-moon"></i>
+            </div>
+
+            <div>
+                <h4>Você foi deslogado, Você será redirecionado </h4>
+                <h4>para a página de login automaticamente</h4>
+            </div>
+                
+         
+
+        </form>
+    </main>
+    <script>
+                setTimeout(function() {
+                    window.location.href = "{% url 'login' %}";
+                }, 5000); // Redirecionar após 5 segundos
+            </script>
+        
+            <!-- JAVASCRIPT -->
+            <script type="text/javascript" src="{% static 'js/roteiro.js' %}"></script>
+        </body>
+        </html>
+        

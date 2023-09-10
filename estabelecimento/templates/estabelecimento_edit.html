@@ -1,0 +1,5 @@
+<form method="post" class="my-form">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Editar</button>
+</form>

@@ -1,0 +1,138 @@
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: var(--color-gradient);
+}
+
+#form_header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+#form_header h1 {
+    font-size: 28px;
+    color: var(--color-light-50);
+    text-align: center;
+}
+
+#mode_icon {
+    cursor: pointer;
+    font-size: 20px;
+    color: var(--color-light-50);
+}
+
+#login_form {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    background-color: var(--color-light-50);
+    padding: 30px 40px;
+    border-radius: 8px;
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.336);
+}
+
+#login_form h1 {
+    font-size: 24px;
+    color: var(--color-dark-100);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-box {
+    width: 100%;
+}
+
+.input-field {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 3px;
+    border-bottom: 1px solid var(--color-purple-50);
+    cursor: text;
+}
+
+.input-field label {
+    font-size: 14px;
+    color: var(--color-dark-50);
+}
+
+.input-field i {
+    font-size: 18px;
+    cursor: text;
+    color: var(--color-dark-900);
+} 
+
+.input-field input {
+    border: none;
+    flex: 1;
+    background-color: transparent;
+    font-size: 18px;
+    padding: 0px 5px;
+}
+
+#login_button {
+    border: none;
+    background: var(--color-gradient);
+    padding: 10px;
+    border-radius: 3px;
+    color: var(--color-light-50);
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    width: 100%;
+    transition: transform 0.3s;
+}
+
+#login_button:hover {
+    transform: scale(1.05);
+}
+/** Variables - colors **/
+:root {
+    /* Light */
+    --color-light-50: #ffffff;
+
+    /* Dark */
+    --color-dark-50: #797984;
+    --color-dark-100: #312d37;
+    --color-dark-900: #000;
+
+    /* Purple */
+    --color-purple-50:  #1616ff;
+    --color-purple-100: #000000;
+    --color-purple-200: #1616ff;
+
+    /* Gradient */
+    --color-gradient: linear-gradient(90deg, var(--color-purple-50), var(--color-purple-100), var(--color-purple-200));
+}
+#login_form {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    background-color: var(--color-light-50);
+    padding: 30px 40px;
+    border-radius: 8px;
+    gap: 30px;
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.336);
+    animation: dark-to-light-background 0.3s ease-in-out;
+}
+
+
+#excluir_form {
+  padding: 80px; /* Ajuste o padding conforme necessário */
+  width: 80%; /* Ajuste a largura do formulário aqui */
+  margin: 50 auto; /* Centralizar horizontalmente */
+  background-color: var(--color-light-50);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}

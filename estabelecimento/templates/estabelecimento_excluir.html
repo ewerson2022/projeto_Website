@@ -1,0 +1,60 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'css/form.css' %}">
+
+    <style>
+      body {
+          margin: 0;
+          padding: 0;
+      }
+      
+      #container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          background-color: var(--color-light-50);
+      }
+      
+      #login_form {
+          background-color: var(--color-light-50);
+          padding: 30px;
+          border-radius: 8px;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+  </style>
+    <title>excluir</title>
+</head>
+<body>   
+    <main id="container">
+        <form id="login_form" method="POST">
+            {% csrf_token %}
+            <!-- FORM HEADER -->
+         
+            <h2>Excluir o estabelecimento
+               <div>{{ estabelecimento.razao_social }}</div></h2>
+            
+            
+            <form id="excluir_form" method="post" action="{% url 'excluir_estabelecimento' estabelecimento.id %}">
+              {% csrf_token %}
+              <label for="excluir">Deseja realmente excluir o estabelecimento?</label>
+              <select id="excluir" name="excluir" style="padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+                <option value="sim" style="color: red;">Sim</option>
+                <option value="nao" style="color: green;">Não</option>
+              </select>
+            <!-- LOGIN BUTTON -->
+              <button type="submit" id="login_button">Confirmar</button>
+            </form>
+        
+        
+    <!-- JAVASCRIPT -->
+    <script type="text/javascript" src="{% static 'js/roteiro.js' %}"></script>
+</body>
+</html>

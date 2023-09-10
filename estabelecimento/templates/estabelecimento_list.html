@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link rel="stylesheet" href="{% static 'css/edition.css' %}">
+    
+    <title>dados da empresa</title>
+</head>
+<body>   
+    
+    <main id="container">
+        
+        <form id="login_form" method="POST">
+            <!-- FORM HEADER -->
+            <div>
+                <a >Bem-vindo(a){{ request.user.username }}</a>
+            </div>
+            <div id="form_header">
+                <i id="mode_icon" class="fa-solid fa-moon"></i>
+                <h2>Dados do Estabelecimento</h2>
+            </div>
+            <div>
+                {% if messages %}
+                    {% for i in messages %}
+                    <div class="message">{{ i }}</div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <ul>
+                {% for estabelecimento in usuario_estabelecimentos %}
+                <hr>
+                    <li><strong>Razão Social:</strong> {{ estabelecimento.razao_social }}</li>
+                    <li><strong>CNPJ:</strong> {{ estabelecimento.cnpj }}</li>
+                    <li><strong>Número do Estabelecimento:</strong> {{ estabelecimento.numero_estabelecimento }}</li>
+                    <li><strong>Endereço:</strong> {{ estabelecimento.endereco }}</li>
+                    <hr/>
+                    <div>
+                        <a href="/home/estabelecimento/editar/{{estabelecimento.id}}/">editar estabelecimento</a>
+                    </div>
+                    <div>
+                        <a href="/home/estabelecimento/excluir/{{estabelecimento.id}}/"> Excluir estabelecimento</a>
+                    </div>
+                    <div>
+                        <a href="/home/estabelecimento/nova_loja/{{estabelecimento.id}}/"> vincular lojas ?</a>
+                   </div>
+                        <a href="/home/estabelecimento/listar_loja/{{estabelecimento.id}}/"> listar lojas ?</a>
+                    
+                    <!-- Adicione outros atributos do modelo Estabelecimento aqui -->
+                {% endfor %}
+                <div>
+                    <a href="{% url 'logout' %}"> Encerrar sessão?</a>
+                </div>
+            </form>
+            </ul>
+           
+    </main>
+
+    <!-- JAVASCRIPT -->
+    <script type="text/javascript" src="{% static 'js/roteiro.js' %}"></script>
+</body>
+</html>

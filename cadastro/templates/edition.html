@@ -1,0 +1,12 @@
+<div class="container">
+    {% if messages %}
+        {% for i in messages %}
+        <div class="message">{{ i }}</div>
+        {% endfor %}
+    {% endif %}
+    <form method="post" class="my-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Editar</button>
+    </form>
+</div>

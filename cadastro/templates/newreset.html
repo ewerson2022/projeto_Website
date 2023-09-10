@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <title>autenticação de senha</title>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link rel="stylesheet" href="{% static 'css/newreset.css' %}">
+
+<main id="container">
+    <form id="login_form" method="POST">
+        <!-- CABEÇALHO DO FORMULÁRIO -->
+        <div id="form_header">
+            <h2>Digite a nova senha</h2>
+            <i id="mode_icon" class="fa-solid fa-moon"></i>
+        </div>
+
+        <div>
+            <h4>Por favor, informe sua nova</h4>
+            <h4>senha duas vezes para</h4>
+            <h4>que possamos verificar</h4>
+            <h4>se você a digitou corretamente.</h4>
+        </div>
+
+        <!-- SENHA -->
+        {% csrf_token %}
+        <div class="input-box">
+            <label for="id_new_password1">
+                Nova senha:
+                <div class="input-field">
+                    <i class="fa-solid fa-key"></i>
+                    <input type="password" id="password" name="new_password1">
+                </div>
+            </label>
+        </div>
+
+        <!-- CONFIRMAÇÃO DE SENHA -->
+        <div class="input-box">
+            <label for="id_new_password2">
+                Confirmar senha:
+                <div class="input-field">
+                    <i class="fa-solid fa-key"></i>
+                    <input type="password" id="password" name="new_password2">
+                </div>
+            </label>
+        </div>
+
+        <!-- BOTÃO DE LOGIN -->
+        <button type="submit" id="login_button" name="button">
+            Confirmar nova senha
+        </button>
+    </form>
+</main>
+
+
+<!-- JAVASCRIPT -->
+<script type="text/javascript" src="{% static 'js/roteiro.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'css/form.css' %}">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        
+        #container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: var(--color-light-50);
+        }
+        
+        #login_form {
+            background-color: var(--color-light-50);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+    <title>cadastro de estabecimento</title>
+</head>
+<body>   
+    <main id="container">
+        <form id="login_form" method="POST">
+            {% csrf_token %}
+            <!-- FORM HEADER -->
+            <div id="form_header">
+                <h2>cadastre seu estabelecimento</h2>
+                <i id="mode_icon" class="fa-solid fa-moon"></i>
+            </div>
+            <div>
+                {% if messages %}
+                    {% for i in messages %}
+                    <div class="message">{{ i }}</div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class="input-box">
+                <label for="nome">numero-estabelecimento</label>
+                <div class="input-field">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" id="nome" placeholder="" name="número do estabecimento">
+                </div>
+            </div> 
+           
+            <div id="inputs">
+                <div class="input-box">
+                    <label for="email">razao-social</label>
+                    <div class="input-field">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="text" id="email" placeholder="" name="razão social">
+                    </div>
+                </div>
+            </div>
+
+            <div id="inputs">
+                <div class="input-box">
+                    <label for="email">cnpj</label>
+                    <div class="input-field">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="text" id="email" placeholder="" name="cnpj">
+                    </div>
+                </div>
+            </div>
+
+            <div id="inputs">
+                <div class="input-box">
+                    <label for="email">endereco-estabelecimento</label>
+                    <div class="input-field">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="text" id="email" placeholder="" name="endereço">
+                    </div>
+                </div>
+            </div>
+
+            
+            <div id="forgot_password">
+                <a href="{% url 'logout'%}">encerrar seção?</a>
+            </div>
+
+            <!-- LOGIN BUTTON -->
+            <button type="submit" id="login_button">salvar dados</button>
+        </form>
+        
+        
+    <!-- JAVASCRIPT -->
+    <script type="text/javascript" src="{% static 'js/roteiro.js' %}"></script>
+</body>
+</html>

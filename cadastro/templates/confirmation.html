@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link rel="stylesheet" href="{% static 'css/conf.css' %}">
+    <html lang="en">
+<head>
+
+    
+    <title>página de confirmação</title>
+    <style>
+        #container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        #form_header {
+            text-align: center;
+            margin-bottom: 18px;
+        }
+        #mode_icon {
+            margin-top: 20px;
+
+        }
+        .input-box {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        #login_button {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    
+    <main id="container">
+        <form id="login_form" method="POST">
+            
+            <div class="input-box">
+                <div><h4>Sua senha foi definida. Você pode</h4></div>
+                <div><h4>prosseguir e se autenticar agora.</h4></div>
+                <div><h4>não se preocupe você será redirecionado</h4></div>
+                <div><h4>automaticamente para tela de login em 10 segundos </h4></div>
+            </div>
+            
+            <script>
+                setTimeout(function() {
+                    window.location.href = "{% url 'login' %}";
+                }, 10000); // Redirecionar após 10 segundos
+            </script>
+            {% csrf_token %}
+        </form>
+    </main>
+            
+    <!-- JAVASCRIPT -->
+    <script type="text/javascript" src="{% static 'js/roteiro.js' %}"></script>
+</body>
+</html>
